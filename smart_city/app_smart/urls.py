@@ -1,6 +1,6 @@
 from . import views
 from django.urls import path, include
-from app_smart.api.viewsets import CreateUserAPIViewSet, SensorViewSet
+from app_smart.api.viewsets import CreateUserAPIViewSet, SensorFilterView, SensorViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from rest_framework.routers import DefaultRouter
 
@@ -15,5 +15,6 @@ urlpatterns = [
     path('api/token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/', include(router.urls)),
+    path('api/sensor_filter/', SensorFilterView.as_view(), name='sensor_filter')
     
 ]
